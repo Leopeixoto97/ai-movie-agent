@@ -11,7 +11,8 @@ def baixar_video(nome):
     caminho_cookie = os.path.join(os.getcwd(), 'cookies.txt')
 
     ydl_opts = {
-        'format': 'best',
+        # 'best' pega o vídeo que já tem áudio embutido, sem precisar de FFmpeg
+        'format': 'best[ext=mp4]/best', 
         'outtmpl': 'videos/video.mp4',
         'cookiefile': caminho_cookie,
         'noplaylist': True,
