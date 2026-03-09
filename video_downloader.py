@@ -11,9 +11,9 @@ def baixar_video(nome):
     caminho_cookie = os.path.join(os.getcwd(), 'cookies.txt')
 
     ydl_opts = {
-        # O formato '18' é o 360p/640x360 que já vem com áudio e vídeo grudados.
-        # Isso evita 100% o erro de FFmpeg no Railway.
-        'format': '18', 
+        # 'best' pega o melhor arquivo único disponível (vídeo+áudio juntos)
+        # Isso garante que nunca mais peça FFmpeg e evita o erro de 'not available'
+        'format': 'best', 
         'outtmpl': 'videos/video.mp4',
         'cookiefile': 'cookies.txt',
         'noplaylist': True,
