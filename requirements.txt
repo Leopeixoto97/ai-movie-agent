@@ -1,8 +1,8 @@
 flask
+google-generativeai
 moviepy
 opencv-python
 requests
 yt-dlp
-openai
 schedule
 instagrapi

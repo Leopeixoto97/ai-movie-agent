@@ -2,8 +2,8 @@ from instagrapi import Client
 import os
 
 # Credenciais (Recomendado usar variáveis de ambiente no futuro por segurança)
-USUARIO = "SEU_USUARIO"
-SENHA = "SUA_SENHA"
+USUARIO = "Leopeixoto97"
+SENHA = "0675"
 
 def postar(caminho_video, legenda):
     cl = Client()
