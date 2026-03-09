@@ -2,22 +2,23 @@ import yt_dlp
 import os
 
 def baixar_video(nome):
-    # Cria a pasta 'videos' se ela não existir
     if not os.path.exists('videos'):
         os.makedirs('videos')
 
     busca = f"{nome} trailer oficial dublado"
     
+    # Verifique se o nome aqui é 'cookies.txt' (igual ao que aparece no seu VS Code agora)
+    caminho_cookie = os.path.join(os.getcwd(), 'cookies.txt')
+
     ydl_opts = {
-        'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
-        # Ajustei aqui para salvar sempre como 'video.mp4' para o seu main.py encontrar
-        'outtmpl': 'videos/video.mp4', 
+        'format': 'best',
+        'outtmpl': 'videos/video.mp4',
+        'cookiefile': caminho_cookie,
         'noplaylist': True,
-        # A LINHA MÁGICA: Aqui ele lê os cookies que você subiu
-        'cookiefile': 'cookie.txt', 
     }
 
     try:
+        print(f"Tentando usar cookies em: {caminho_cookie}")
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([f"ytsearch1:{busca}"])
         print(f"Download de '{nome}' concluído com sucesso!")
